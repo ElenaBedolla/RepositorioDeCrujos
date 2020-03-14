@@ -1,0 +1,2 @@
+obspy-1.2.1
+matplotlib-3.0.2
