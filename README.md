@@ -59,11 +59,11 @@ The set of tools that the distribution system includes meaning the combination o
 - Django
 
 **Metodology:**
-![IRIS](/images/Diapositiva1.JPG)
+![IRIS](/images/1.JPG)
 
 **General Archictecture and development diagram**
-![IRIS](/images/Diapositiva2.JPG)
-![IRIS](/images/Diapositiva3.JPG)
+![IRIS](/images/2.JPG)
+![IRIS](/images/3.JPG)
 
 **Approximate cost of development**
 
