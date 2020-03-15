@@ -1,12 +1,12 @@
-**Práctica 1, Revisión 1**
-
-**Integrantes:**
+Practice 1, Revision 1, English Version
+15/03/2020
+**Team members:**
 
 **Computo distribuido**
 
 Lilia Daniela Salazar Herrera -danyliy@icloud.com
 
-María Elena Bedolla Zamudio-maria.elena.bedolla.zamudio@gmail.com
+María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
 
 **Introducción a la exploración geofísica**
 
@@ -20,37 +20,32 @@ Salvador Torres Cervantes
 
 Fernando Rodrigo Aguilar Javier
 
-**Licencia: GPL 3.0**
+**Introduction**
 
+IRIS is a university research consortium dedicated to explore the earth interior through the collection and distribution of seismologic data and when we saw that they put a lot of this data on Internet and that it is only reachable for People that work at this area so we still do necessary to create a platform that put The processed data online for everyone to understand
 
+**Planification**
 
-**Definición del proyecto (Planificación):**
+We´re going to do a distributed system that helps to detect earthquakes through the visualization of spectrograms, seismograms and statistics in real time. The system also pretends to classify earthquakes by magnitude and intensity and if time allows, we Will be doing a classification by the type of wave too.
 
-Un sistema distribuido, que ayude a detectar sismos, mediante la visualización de espectrogramas, sismogramas y estadísticos, en tiempo real. Dicho sistema también pretende clasificar sismos por magnitud e intensidad. Y si los tiempos lo permiten una clasificación de los sismos por sus ondas _p y s_.
+**Why we picked this project?**
 
-**¿Porque elegimos este proyecto?**
+Because we want to simplify the visualization of earth tremors that IRIS registers, since it&#39;s not a very intuitive platform to use and with the raw data it restricts not so familiar with these technologies which reduce the utilization of this data base
 
-Porque queremos simplificar la visualización de los eventos sísmicos que registra IRIS, pues es una plataforma no muy intuitiva de usar y con datos crudos, que restringe a las personas no muy familiarizadas con las tecnologías computacionales, lo que reduce el aprovechamiento de esta base de datos.
+**General Objectives**
 
-**Objetivos generales**
+- Create a tool that generates seismograms and spectrograms in real time from the seismic stations that are registered in IRIS (Incorporated Research Institutions for Seismology).
+- We´re going to provide a tool for people that works in seismology with the purpose to make easier their work through the visualization of the registered events and the statistics of the earthquakes.
 
-Generar una herramienta que genere sismogramas y espectrogramas, en tiempo real, de las estaciones sismológicas que están registradas en IRIS (Incorporated Research Institutions for Seismology).
+**What we want to show?**
 
-Brindar una herramienta a las personas que trabajan con Sismología u áreas a fines, con el propósito de simplificar su trabajo mediante la visualización de los eventos registrados, así como los estadísticos de los mismos.
+We want to display the statistics, seismograms and spectrograms from the distinct seismologic stations all of this with a distributed system that lets us monitor all these data.
 
-**¿Qué se pretende mostrar?**
+**What makes this project unique?**
 
-Los estadísticos, espectrogramas y sismogramas, de las distintas estaciones sísmicas, todo esto en un sistema distribuido que permita monitorear dichos elementos en tiempo real.
+The set of tools that the distribution system includes meaning the combination of statistics that the stations registered at Iris with a real time monitor at the same time the classification through machine learning instruments specifically supervised learning.
 
-Clasificación de los sismos de acuerdo con su magnitud e intensidad.
-
-(Extra) Clasificación en donde se pueda analizar las ondas p y s de los sismogramas obtenidos, para ver si es posible extraer información relevante para las personas que se dedican a estas áreas o bien, para aquellas que la información pueda ser relevante.
-
-**¿Qué hace al proyecto único?**
-
-El conjunto de herramientas que incluye el sistema distribuido, es decir, la combinación de estadísticos, sismogramas y espectrogramas de las distintas estaciones registradas en IRIS, con un monitoreo en tiempo real, y al mismo tiempo la clasificación de los sismos mediante herramientas de Machine Learning, específicamente en aprendizaje supervisado.
-
-**Herramientas de Software**
+**Software tools:**
 
 - Python
 - Php
@@ -60,31 +55,44 @@ El conjunto de herramientas que incluye el sistema distribuido, es decir, la com
 - Módulo de OBSPY
 - Sublime Text
 - Kate
-- RabbitMQ (Tentativo)
+- RabbitMQ (Optional)
+- Django
 
-**Diagrama de desarrollo/ Arquitectura general del sistema /Metodologia**
+**Metodology:**
 ![IRIS](/images/Diapositiva1.JPG)
+
+**General Archictecture and development diagram**
 ![IRIS](/images/Diapositiva2.JPG)
 ![IRIS](/images/Diapositiva3.JPG)
 
+**Approximate cost of development**
 
-**¿Cuál es el costo aproximado?**
-![IRIS](/images/Diapositiva4.JPG)
-**Fuente de datos**
+- 132 hours
+- 66 days
+- 2 weeks
+- 3 months
+- 6,600 the cost to pay
+- 5,940 Net payment
 
-- Red de estaciones sísmicas de IRIS.
+**Sources:**
 
+        IRIS (Incorporated Research Institutions for Seismology)
 ![IRIS](/images/Diapositiva5.JPG)
 
-                        [https://www.iris.edu/hq/](https://www.iris.edu/hq/)
+**Test:**
 
-**Prueba:**
-Correr con la linea de comando python template_download.py, para descargar los datos de prueba. Y posteriormente ejecutar python spectrograms.py para observar espectrogramas de prueba.
+Run the command python template\_download.py, to download the test data. And afterwards run python spectrograms to observe the spectrograms.
 
-**Referencias:**
+**Conclusions:**
+
+During the acquisition of data, a series of problems arose, since an interpretation of these had to be made, given that it was necessary to evaluate whether what we were downloading would help us achieve our objective when it came to visualizing the information. Practically this part was the one that took us the longest, since several tests were carried out, in addition to a collaboration with students of the subject Introduction to geophysical exploration to support us with geoprocessing and its interpretation. In this practice the points on which they are going to work on this project were established, all this under the methodology of Extreme programming and it is with this that the documentation of it begins.
+
+**References:**
 
 Yanina Muradas. (2020, 13 febrero). Conoce las 3 metodologías ágiles más usadas. Recuperado 14 marzo, 2020, de https://openwebinars.net/blog/conoce-las-3-metodologias-agiles-mas-usadas/
 
-Agilpm. (s.f.). SoftwaReal calcula el costo de tus proyectos en menos de 1 minuto y aporta valor a tus clientes.. Recuperado 14 marzo, 2020, de [https://agilpm.com/softwareal/](https://agilpm.com/softwareal/)
+Agilpm. (s.f.). SoftwaReal calcula el costo de tus proyectos en menos de 1 minuto y aporta valor a tus clientes. Recuperado 14 marzo, 2020, de [https://agilpm.com/softwareal/](https://agilpm.com/softwareal/)
 
 IRIS. (s.f.). IRIS DATA. Recuperado 14 marzo, 2020, de [https://www.iris.edu/hq/](https://www.iris.edu/hq/)
+
+SPE. (s.f.). Seismic interpretation. Recuperado 13 marzo, 2020, de https://petrowiki.org/Seismic\_interpretation
