@@ -39,7 +39,7 @@ with open(tmpfile,"r") as events:
             if(event != "\n"):
                 client = Client("SCEDC")
                 event = event.strip("\n")
-                ymd, hm, s, lat, lon , dep, mag, jk = event.split()
+                ymd, hm, s, lat, lon , dep, mag, jk = event.split() # Datos del evento (sismo)
                 year="20"+ymd[:2]
                 month=ymd[2:4]
                 day=ymd[4:6]
@@ -48,11 +48,11 @@ with open(tmpfile,"r") as events:
                 sec,msec=s.split(".")
                 if (len(sec)<2):
                     sec="0"+sec
-                evla=lat[:7]
-                evlo=lon[:8]
-                evdp=dep
-                evmag=mag
-                out.write('{}{}{}{}{}{}.{} {} -{} {} {} {} -{} {}\n'.format(year, month,day,hour,minutes,sec,msec,evla,evlo,evdp,evmag,evla,evlo,evdp))
+                evla=lat[:7] # Latitud
+                evlo=lon[:8] # Longitud
+                evdp=dep # Profundidad [km]
+                evmag=mag # Magnitud sismica en escala Richter
+                out.write('{}{}{}{}{}{}.{} {} -{} {} {}\n'.format(year, month,day,hour,minutes,sec,msec,evla,evlo,evdp,evmag))
                 #download template
                 client = Client("IRIS")
                 tb = UTCDateTime(year+"-"+month+"-"+day+"T"+hour+":"+minutes+":"+sec+"."+msec)-10
@@ -76,6 +76,8 @@ with open(tmpfile,"r") as events:
                                     st.detrend("demean")
                                     st.detrend("linear")
                                     st.filter('bandpass', freqmin=2, freqmax=8)
+                                    #print(st[0].data)
+                                    # El atributo data de un Trace() devuelve el arreglo de samples registrados (secuencia de valores numericos)
                                     st.write(filename=templatedir + net + '.' + sta + '.' + chan1,format="SAC")
                                     # SAC se trata de un formato binario usado por IRIS
                                     # Similar a un paquete de algun protocolo de red en el sentido de que contiene una cabecera y esta dividido en secciones para proporcionar los datos
