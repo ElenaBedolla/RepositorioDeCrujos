@@ -84,7 +84,7 @@ The set of tools that the distribution system includes meaning the combination o
 
 **Test:**
 
-Run the command python template\_download.py, to download the test data. And afterwards run python spectrograms.py to observe the spectrograms.
+Run the command python template\_download.py, to download the test data. And afterwards run python spectrograms.py to observe the spectrograms. The requeriments for this project are in the document named "Requeriments.txt".
 
 **Conclusions:**
 
