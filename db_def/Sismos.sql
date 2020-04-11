@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 10-04-2020 a las 08:52:18
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Host: localhost
+-- Generation Time: Apr 11, 2020 at 03:05 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `Sismos`
+-- Database: `Sismos`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CHANNEL`
+-- Table structure for table `CHANNEL`
 --
 
 CREATE TABLE `CHANNEL` (
@@ -36,7 +35,7 @@ CREATE TABLE `CHANNEL` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CHANNEL_EVENT`
+-- Table structure for table `CHANNEL_EVENT`
 --
 
 CREATE TABLE `CHANNEL_EVENT` (
@@ -44,13 +43,13 @@ CREATE TABLE `CHANNEL_EVENT` (
   `channel` char(3) NOT NULL,
   `event_id` int(10) UNSIGNED NOT NULL,
   `sample_rate` int(10) UNSIGNED NOT NULL,
-  `waveform` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
-) ;
+  `waveform` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`waveform`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EARTHQUAKE`
+-- Table structure for table `EARTHQUAKE`
 --
 
 CREATE TABLE `EARTHQUAKE` (
@@ -66,7 +65,7 @@ CREATE TABLE `EARTHQUAKE` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `STATION`
+-- Table structure for table `STATION`
 --
 
 CREATE TABLE `STATION` (
@@ -77,47 +76,51 @@ CREATE TABLE `STATION` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `CHANNEL`
+-- Indexes for table `CHANNEL`
 --
 ALTER TABLE `CHANNEL`
   ADD PRIMARY KEY (`symbol`,`station`),
   ADD KEY `station` (`station`);
 
 --
--- Indices de la tabla `EARTHQUAKE`
+-- Indexes for table `CHANNEL_EVENT`
+--
+ALTER TABLE `CHANNEL_EVENT`
+  ADD KEY `station` (`station`,`channel`),
+  ADD KEY `event_id` (`event_id`);
+
+--
+-- Indexes for table `EARTHQUAKE`
 --
 ALTER TABLE `EARTHQUAKE`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `STATION`
+-- Indexes for table `STATION`
 --
 ALTER TABLE `STATION`
   ADD PRIMARY KEY (`symbol`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `EARTHQUAKE`
---
-ALTER TABLE `EARTHQUAKE`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `CHANNEL`
+-- Constraints for table `CHANNEL`
 --
 ALTER TABLE `CHANNEL`
   ADD CONSTRAINT `CHANNEL_ibfk_1` FOREIGN KEY (`station`) REFERENCES `STATION` (`symbol`);
+
+--
+-- Constraints for table `CHANNEL_EVENT`
+--
+ALTER TABLE `CHANNEL_EVENT`
+  ADD CONSTRAINT `CHANNEL_EVENT_ibfk_1` FOREIGN KEY (`station`,`channel`) REFERENCES `CHANNEL` (`station`, `symbol`),
+  ADD CONSTRAINT `CHANNEL_EVENT_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `EARTHQUAKE` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
