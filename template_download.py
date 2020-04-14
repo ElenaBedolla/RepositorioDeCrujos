@@ -9,17 +9,22 @@ Created on Mon Aug 19 16:23:58 2019
 from obspy.clients.fdsn import Client
 from obspy import UTCDateTime, read
 import os
-
+import datetime
+import copy
 #User-specied
 #Datos de el/los eventos que quieren estudiarse (ubicacion y parametros de seleccion de datos)
-starttime = UTCDateTime("2019-07-04T22:00:00.00")
-endtime = UTCDateTime("2019-07-04T23:00:00.00")
+end_time = datetime.datetime.now() 
+start_time = end_time-datetime.timedelta(hours=12) # 12 hour interval
+starttime = UTCDateTime(start_time.isoformat())
+print(start_time.isoformat())
+endtime = UTCDateTime(end_time.isoformat())
+#mtime = datetime.datetime.strptime(item["time_tag"],'%Y-%m-%dT%H:%M:%SZ')
 mindepth = -100
 maxdepth = 100
-minmagnitude=2.5
-maxmagnitude=6
-latitude=35.7080
-longitude=-117.5037
+minmagnitude=1
+maxmagnitude=9
+latitude=19.419444
+longitude=-99.145556
 minradius=0
 maxradius=0.5
 tmpfile="tmp.catalog"
@@ -31,11 +36,11 @@ out = open(catalog,"w")
 
 #request catalog
 client = Client("SCEDC")
-cat = client.get_events(catalog="SCEDC",starttime=starttime,endtime=endtime,mindepth=mindepth,maxdepth=maxdepth,minmagnitude=minmagnitude,maxmagnitude=maxmagnitude,latitude=latitude,longitude=longitude,minradius=minradius,maxradius=maxradius)
+cat = client.get_events(catalog="SCEDC",starttime=starttime,endtime=endtime,mindepth=mindepth,maxdepth=maxdepth,minmagnitude=minmagnitude,maxmagnitude=maxmagnitude,latitude=latitude,longitude=longitude,minradius=minradius,maxradius=maxradius,orderby="mag")
 cat.write(tmpfile,format="CNV")
 
 with open(tmpfile,"r") as events:
-        for event in events:
+        for i, event in enumerate(events):
             if(event != "\n"):
                 client = Client("SCEDC")
                 event = event.strip("\n")
@@ -57,7 +62,7 @@ with open(tmpfile,"r") as events:
                 client = Client("IRIS")
                 tb = UTCDateTime(year+"-"+month+"-"+day+"T"+hour+":"+minutes+":"+sec+"."+msec)-10
                 te = UTCDateTime(year+"-"+month+"-"+day+"T"+hour+":"+minutes+":"+sec+"."+msec)+50
-                templatedir = "./Template/" + year+month+day+hour+minutes+sec+"."+msec + "/"
+                templatedir = "./Template/" + year+month+day+hour+minutes+sec+"."+msec + "-" + str(i) + "/"
                 if not os.path.exists(templatedir):
                     os.makedirs(templatedir)
                 with open(stationfile, "r") as f:

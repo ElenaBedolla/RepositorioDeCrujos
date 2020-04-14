@@ -4,8 +4,7 @@ CREATE TABLE EARTHQUAKE(
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
     depth FLOAT NOT NULL,
-    magnitude FLOAT NOT NULL,
-    duration TIME NOT NULL)
+    magnitude FLOAT NOT NULL)
     
 CREATE TABLE STATION(
     symbol VARCHAR(10) PRIMARY KEY,
@@ -19,12 +18,15 @@ CREATE TABLE CHANNEL(
     FOREIGN KEY(station) REFERENCES STATION(symbol),
     PRIMARY KEY(symbol,station))
     
-CREATE TABLE CHANNEL_EVENT(
+CREATE TABLE CHANNEL_EARTHQUAKE(
     station VARCHAR(10) NOT NULL,
     channel CHAR(3) NOT NULL,
-    event_id INT UNSIGNED NOT NULL,
+    earthquake_id INT UNSIGNED NOT NULL,
     sample_rate INT UNSIGNED NOT NULL,
     waveform JSON NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+
     FOREIGN KEY(station, channel) REFERENCES CHANNEL(station, symbol),
-    FOREIGN KEY(event_id) REFERENCES EARTHQUAKE(id))
+    FOREIGN KEY(earthquake_id) REFERENCES EARTHQUAKE(id))
     

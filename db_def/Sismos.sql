@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 11, 2020 at 03:05 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Servidor: localhost
+-- Tiempo de generación: 14-04-2020 a las 05:31:28
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Sismos`
+-- Base de datos: `Sismos`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `CHANNEL`
+-- Estructura de tabla para la tabla `CHANNEL`
 --
 
 CREATE TABLE `CHANNEL` (
@@ -35,21 +36,21 @@ CREATE TABLE `CHANNEL` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `CHANNEL_EVENT`
+-- Estructura de tabla para la tabla `CHANNEL_EARTHQUAKE`
 --
 
-CREATE TABLE `CHANNEL_EVENT` (
+CREATE TABLE `CHANNEL_EARTHQUAKE` (
   `station` varchar(10) NOT NULL,
   `channel` char(3) NOT NULL,
-  `event_id` int(10) UNSIGNED NOT NULL,
+  `earthquake_id` int(10) UNSIGNED NOT NULL,
   `sample_rate` int(10) UNSIGNED NOT NULL,
-  `waveform` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`waveform`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `waveform` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+) ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `EARTHQUAKE`
+-- Estructura de tabla para la tabla `EARTHQUAKE`
 --
 
 CREATE TABLE `EARTHQUAKE` (
@@ -58,14 +59,13 @@ CREATE TABLE `EARTHQUAKE` (
   `latitude` float NOT NULL,
   `longitude` float NOT NULL,
   `depth` float NOT NULL,
-  `magnitude` float NOT NULL,
-  `duration` time NOT NULL
+  `magnitude` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `STATION`
+-- Estructura de tabla para la tabla `STATION`
 --
 
 CREATE TABLE `STATION` (
@@ -76,51 +76,37 @@ CREATE TABLE `STATION` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `CHANNEL`
+-- Indices de la tabla `CHANNEL`
 --
 ALTER TABLE `CHANNEL`
   ADD PRIMARY KEY (`symbol`,`station`),
   ADD KEY `station` (`station`);
 
 --
--- Indexes for table `CHANNEL_EVENT`
---
-ALTER TABLE `CHANNEL_EVENT`
-  ADD KEY `station` (`station`,`channel`),
-  ADD KEY `event_id` (`event_id`);
-
---
--- Indexes for table `EARTHQUAKE`
+-- Indices de la tabla `EARTHQUAKE`
 --
 ALTER TABLE `EARTHQUAKE`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `STATION`
+-- Indices de la tabla `STATION`
 --
 ALTER TABLE `STATION`
   ADD PRIMARY KEY (`symbol`);
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `CHANNEL`
+-- Filtros para la tabla `CHANNEL`
 --
 ALTER TABLE `CHANNEL`
   ADD CONSTRAINT `CHANNEL_ibfk_1` FOREIGN KEY (`station`) REFERENCES `STATION` (`symbol`);
-
---
--- Constraints for table `CHANNEL_EVENT`
---
-ALTER TABLE `CHANNEL_EVENT`
-  ADD CONSTRAINT `CHANNEL_EVENT_ibfk_1` FOREIGN KEY (`station`,`channel`) REFERENCES `CHANNEL` (`station`, `symbol`),
-  ADD CONSTRAINT `CHANNEL_EVENT_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `EARTHQUAKE` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
