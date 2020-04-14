@@ -86,7 +86,7 @@ The set of tools that the distribution system includes meaning the combination o
 
 Easy testing can be done by running the test_setup.sh file as "bash test_setup.sh".
 
-To easily test this project with said file, you must be running a mysql Xampp server installed in "/opt/lampp/bin/mysql" so as to not experience password conflicts with the automatic setup.
+To easily test this project with said file, you must be running a mysql Xampp server installed in "/opt/lampp/bin/mysql" so as to not experience password conflicts with the automatic setup and updating process.
 
 The requeriments for this project are in the document named "Requeriments.txt".
 

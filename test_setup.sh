@@ -1,5 +1,5 @@
 /opt/lampp/bin/mysql -u root -e "CREATE DATABASE Sismos"
-/opt/lampp/bin/mysql -u root -e Sismos < db_def/Sismos.sql
+/opt/lampp/bin/mysql -u root Sismos < db_def/Sismos.sql
 
 python template_download.py
 python data_import/import_stations.py
