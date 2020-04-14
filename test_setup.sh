@@ -6,4 +6,4 @@ python data_import/import_stations.py
 python data_import/import_channels.py
 python data_import/update_earthquakes.py
 
-/opt/lampp/bin/mysql -u root -DSismos -e "SELECT * FROM EARTHQUAKE"
+/opt/lampp/bin/mysql -u root -D Sismos -e "SELECT * FROM EARTHQUAKE"
