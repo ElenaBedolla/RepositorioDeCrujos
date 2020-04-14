@@ -3,7 +3,7 @@
 """
 Created on Mon Aug 19 16:23:58 2019
 
-@author: mliu
+@original author: mliu
 """
 
 from obspy.clients.fdsn import Client
@@ -14,7 +14,7 @@ import copy
 #User-specied
 #Datos de el/los eventos que quieren estudiarse (ubicacion y parametros de seleccion de datos)
 end_time = datetime.datetime.now() 
-start_time = end_time-datetime.timedelta(hours=12) # 12 hour interval
+start_time = end_time-datetime.timedelta(hours=12) # Intervalo de busqueda desde 12 horas anteriores a la actual
 starttime = UTCDateTime(start_time.isoformat())
 print(start_time.isoformat())
 endtime = UTCDateTime(end_time.isoformat())
@@ -26,7 +26,7 @@ maxmagnitude=9
 latitude=19.419444
 longitude=-99.145556
 minradius=0
-maxradius=0.5
+maxradius=3
 tmpfile="tmp.catalog"
 catalog="catalog.dat"
 stationfile = "./IRIS.sta"
@@ -39,9 +39,11 @@ client = Client("SCEDC")
 cat = client.get_events(catalog="SCEDC",starttime=starttime,endtime=endtime,mindepth=mindepth,maxdepth=maxdepth,minmagnitude=minmagnitude,maxmagnitude=maxmagnitude,latitude=latitude,longitude=longitude,minradius=minradius,maxradius=maxradius,orderby="mag")
 cat.write(tmpfile,format="CNV")
 
+i=0
 with open(tmpfile,"r") as events:
-        for i, event in enumerate(events):
+        for event in events:
             if(event != "\n"):
+                i+=1
                 client = Client("SCEDC")
                 event = event.strip("\n")
                 ymd, hm, s, lat, lon , dep, mag, jk = event.split() # Datos del evento (sismo)
