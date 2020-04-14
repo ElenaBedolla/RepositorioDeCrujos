@@ -44,7 +44,9 @@ CREATE TABLE `CHANNEL_EARTHQUAKE` (
   `channel` char(3) NOT NULL,
   `earthquake_id` int(10) UNSIGNED NOT NULL,
   `sample_rate` int(10) UNSIGNED NOT NULL,
-  `waveform` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+  `waveform` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL
 ) ;
 
 -- --------------------------------------------------------
