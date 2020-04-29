@@ -7,7 +7,7 @@ Practice 1, Revision 1, English Version
 
 **Computo distribuido**
 
-Lilia Daniela Salazar Herrera -danyliy@icloud.com
+Lilia Daniela Salazar Herrera -danylily@icloud.com
 
 María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
 
