@@ -11,6 +11,8 @@ from obspy import UTCDateTime, read
 import os
 import datetime
 import copy
+from bs4 import BeautifulSoup as Soup
+
 #User-specied
 #Datos de el/los eventos que quieren estudiarse (ubicacion y parametros de seleccion de datos)
 end_time = datetime.datetime.now() 
@@ -18,7 +20,7 @@ start_time = end_time-datetime.timedelta(hours=24) # Intervalo de busqueda desde
 starttime = UTCDateTime(start_time.isoformat())
 print(start_time.isoformat())
 endtime = UTCDateTime(end_time.isoformat())
-#mtime = datetime.datetime.strptime(item["time_tag"],'%Y-%m-%dT%H:%M:%SZ')
+#mtime = datetime.datetime.strptime(item["time_tag"],'%Y-%m-%dT%H:%M:%SZ')t
 mindepth = 0
 maxdepth = 100
 minmagnitude=2
@@ -26,16 +28,15 @@ maxmagnitude=9
 latitude=15
 longitude=-90
 minradius=0
-maxradius=3
+maxradius=20
 tmpfile="tmp.catalog"
 catalog="catalog.dat"
-stationfile = "./IRIS.sta"
+stationfile = "STATIONS.sta"
 out = open(catalog,"w")
 
-
-
-#request catalog
 client = Client("SCEDC")
+#request catalog
+
 cat = client.get_events(catalog="SCEDC",starttime=starttime,endtime=endtime,mindepth=mindepth,maxdepth=maxdepth,minmagnitude=minmagnitude,maxmagnitude=maxmagnitude,latitude=latitude,longitude=longitude,minradius=minradius,maxradius=maxradius,orderby="mag")
 cat.write(tmpfile,format="CNV")
 
@@ -69,11 +70,8 @@ with open(tmpfile,"r") as events:
                     os.makedirs(templatedir)
                 with open(stationfile, "r") as f:
                         for station in f:
-                            stlo, stla, net, sta, chan, elev = station.split()
-                            chane = chan[:2] + "E"
-                            chann = chan[:2] + "N"
-                            chanz = chan[:2] + "Z"
-                            chan0 = [chane, chann, chanz]
+                            stlo, stla, net, sta, channels, elev = station.split()
+                            chan0 = channels.split('.')
                             for chan1 in chan0:
                                 print(sta,chan1)
                                 try:

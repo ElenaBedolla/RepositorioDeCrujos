@@ -51,8 +51,6 @@ add_channel_earthquake = ("INSERT INTO CHANNEL_EARTHQUAKE(station, channel, eart
 cur_path = os.path.dirname(__file__)
 main_folder = os.path.join(cur_path, '../Template')
 
-shutil.rmtree(main_folder)
-os.mkdir(main_folder)
 
 event_folders = os.listdir(main_folder)
 for event_folder in event_folders:
@@ -74,3 +72,5 @@ for event_folder in event_folders:
 mydb.commit()
 cursor.close()
 mydb.close()
+
+shutil.rmtree(main_folder)
