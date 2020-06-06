@@ -14,17 +14,17 @@ import copy
 #User-specied
 #Datos de el/los eventos que quieren estudiarse (ubicacion y parametros de seleccion de datos)
 end_time = datetime.datetime.now() 
-start_time = end_time-datetime.timedelta(hours=12) # Intervalo de busqueda desde 12 horas anteriores a la actual
+start_time = end_time-datetime.timedelta(hours=24) # Intervalo de busqueda desde 12 horas anteriores a la actual
 starttime = UTCDateTime(start_time.isoformat())
 print(start_time.isoformat())
 endtime = UTCDateTime(end_time.isoformat())
 #mtime = datetime.datetime.strptime(item["time_tag"],'%Y-%m-%dT%H:%M:%SZ')
-mindepth = -100
+mindepth = 0
 maxdepth = 100
-minmagnitude=1
+minmagnitude=2
 maxmagnitude=9
-latitude=19.419444
-longitude=-99.145556
+latitude=15
+longitude=-90
 minradius=0
 maxradius=3
 tmpfile="tmp.catalog"

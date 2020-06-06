@@ -4,6 +4,7 @@ import mysql.connector
 import os
 import json
 import datetime
+import shutil
 
 mydb = mysql.connector.connect(
   host="localhost",
@@ -18,6 +19,7 @@ cursor = mydb.cursor()
 delete_previous =("DELETE FROM CHANNEL_EARTHQUAKE")
 
 cursor.execute(delete_previous)
+
 
 delete_previous =("DELETE FROM EARTHQUAKE")
 
@@ -48,6 +50,9 @@ add_channel_earthquake = ("INSERT INTO CHANNEL_EARTHQUAKE(station, channel, eart
 
 cur_path = os.path.dirname(__file__)
 main_folder = os.path.join(cur_path, '../Template')
+
+shutil.rmtree(main_folder)
+os.mkdir(main_folder)
 
 event_folders = os.listdir(main_folder)
 for event_folder in event_folders:
