@@ -19,10 +19,6 @@ Josué Soto Cortez
 
 Gilberto Carlos Domínguez Aguilar
 
-Salvador Torres Cervantes
-
-Fernando Rodrigo Aguilar Javier
-
 **Introduction**
 
 IRIS is a university research consortium dedicated to explore the earth interior through the collection and distribution of seismologic data and when we saw that they put a lot of this data on Internet and that it is only reachable for People that work at this area so we still do necessary to create a platform that put The processed data online for everyone to understand
