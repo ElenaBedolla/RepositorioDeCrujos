@@ -56,21 +56,25 @@ event_folders = os.listdir(main_folder)
 for event_folder in event_folders:
     event_data = event_folder.split('-')
     event_path = os.path.join(main_folder, event_folder)
-    files = os.listdir(event_path)
-    for file in files:
-        file_path = os.path.join(event_path, file)
-        st = read(file_path)
-        trace = list(map(float, list(st[0].data)))
-        waveform = json.dumps(trace)
-        sample_rate = st[0].stats.sampling_rate
-        start_time = st[0].stats.starttime.strftime('%Y-%m-%d %H:%M:%S.%f')
-        end_time = st[0].stats.endtime.strftime('%Y-%m-%d %H:%M:%S.%f')
-        file_symbols = file.split('.')
-        final_channel_earthquake = (file_symbols[1], file_symbols[2], event_data[-1], sample_rate, waveform, start_time, end_time)
-        cursor.execute(add_channel_earthquake, final_channel_earthquake)
+    stations = os.listdir(event_path)
+    for station in stations:
+        station_path = os.path.join(event_path, station)
+        #st = read(station_path)
+        channels = os.listdir(station_path)
+        for channel in channels:
+            channel_path = os.path.join(station_path, channel)
+            chan = read(channel_path)
+            trace = list(map(float, list(chan[0].data)))
+            waveform = json.dumps(trace)
+            sample_rate = chan[0].stats.sampling_rate
+            start_time = chan[0].stats.starttime.strftime('%Y-%m-%d %H:%M:%S.%f')
+            end_time = chan[0].stats.endtime.strftime('%Y-%m-%d %H:%M:%S.%f')
+            network_station = station.split('.')
+            final_channel_earthquake = (network_station[1], channel, event_data[-1], sample_rate, waveform, start_time, end_time)
+            cursor.execute(add_channel_earthquake, final_channel_earthquake)
 
 mydb.commit()
 cursor.close()
 mydb.close()
 
-shutil.rmtree(main_folder)
+#shutil.rmtree(main_folder)
