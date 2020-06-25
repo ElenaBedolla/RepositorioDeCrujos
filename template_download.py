@@ -31,7 +31,7 @@ maxmagnitude=9
 latitude=15
 longitude=-90
 minradius=0
-maxradius=20
+maxradius=5
 tmpfile="tmp.catalog"
 catalog="catalog.dat"
 stationfile = "STATIONS.sta"
@@ -80,6 +80,7 @@ with open(tmpfile,"r") as events:
                             if not os.path.exists(templatedir + stationdir):
                                 os.makedirs(templatedir + stationdir)
                             chan0 = channels.split('.')
+                            cont = 0
                             for chan1 in chan0:
                                 print(sta,chan1)
                                 #st = client.get_waveforms(network=net, station=sta, channel=chan1,starttime=tb,endtime=te, location='--')
@@ -121,5 +122,8 @@ with open(tmpfile,"r") as events:
                                     st1.write(filename=templatedir + stationdir + chan1,format="SAC")
                                     #st.plot()
                                 except (obspy.clients.fdsn.header.FDSNNoDataException, obspy.clients.fdsn.header.FDSNException) as e:
+                                    cont+=1
+                                    if cont == len(chan0):
+                                             shutil.rmtree(templatedir+stationdir)
                                     print("doesn't exist:",sta, chan1)
 os.remove(tmpfile)

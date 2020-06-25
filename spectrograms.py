@@ -20,10 +20,11 @@ for event_folder in event_folders:
             channel_path = os.path.join(station_path, channel)
             chan = read(channel_path)
             st.append(chan[0])
-            chan.spectrogram(log=False, title='Canal: %s'%(channel), wlen=st[i].stats.sampling_rate/100.0, show=False, axes=axs[i])
+            chan.spectrogram(log=True, title='Canal: %s'%(channel), wlen=st[i].stats.sampling_rate/100.0, show=False, axes=axs[i])
         try:
             st.plot(outfile=os.path.join(station_path, 'seismograms_plot.png'))
             plt.savefig(os.path.join(station_path,'spectrograms_plot.png'))
         except IndexError:
             print("No data for station %s"%(station))
-        
+        plt.clf()
+        plt.close()
