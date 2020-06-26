@@ -69,8 +69,8 @@ for event_folder in event_folders:
             sample_rate = chan[0].stats.sampling_rate
             start_time = chan[0].stats.starttime.strftime('%Y-%m-%d %H:%M:%S.%f')
             end_time = chan[0].stats.endtime.strftime('%Y-%m-%d %H:%M:%S.%f')
-            network_station = station.split('.')
-            final_channel_earthquake = (network_station[1], channel, event_data[-1], sample_rate, waveform, start_time, end_time)
+            #network_station = station.split('.')
+            final_channel_earthquake = (station, channel, event_data[-1], sample_rate, waveform, start_time, end_time)
             cursor.execute(add_channel_earthquake, final_channel_earthquake)
 
 mydb.commit()

@@ -70,13 +70,13 @@ with open(tmpfile,"r") as events:
                 client = Client("IRIS")
                 tb = UTCDateTime(year+"-"+month+"-"+day+"T"+hour+":"+minutes+":"+sec+"."+msec)-10
                 te = UTCDateTime(year+"-"+month+"-"+day+"T"+hour+":"+minutes+":"+sec+"."+msec)+170
-                templatedir = "./Template/" + year+month+day+hour+minutes+sec+"."+msec + "-" + str(i) + "/"
+                templatedir = "./Template/" + year+month+day+hour+minutes+sec+ "-" + str(i) + "/"
                 if not os.path.exists(templatedir):
                     os.makedirs(templatedir)
                 with open(stationfile, "r") as f:
                         for station in f:
                             stlo, stla, net, sta, channels, elev = station.split()
-                            stationdir = net + '.' + sta + '/'
+                            stationdir = sta + '/'
                             if not os.path.exists(templatedir + stationdir):
                                 os.makedirs(templatedir + stationdir)
                             chan0 = channels.split('.')

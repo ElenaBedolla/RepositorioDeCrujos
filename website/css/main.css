@@ -1,0 +1,21 @@
+body {
+  font-family: 'MuseoModerno', sans-serif;
+  background: #cdcdd1
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: #f0e5e5;
+  font-weight: bold;
+}
+
+
+footer {
+  background:#f6f6fa;
+  height: 200px;
+  
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
