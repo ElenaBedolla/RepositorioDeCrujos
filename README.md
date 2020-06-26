@@ -82,7 +82,13 @@ The set of tools that the distribution system includes meaning the combination o
 
 Easy testing can be done by running the test_setup.sh file as "bash test_setup.sh".
 
-To easily test this project with said file, you must be running a mysql Xampp server installed in "/opt/lampp/bin/mysql" so as to not experience password conflicts with the automatic setup and updating process. If you wish to host and test the website, you will also be required to clone this repository to "/opt/lampp/htdocs", which will enable PHP execution and Apache hosting, as well as lifting read-write restrictions on the cloned folder with chmod.
+To easily test this project with said file, you must be running a mysql Xampp server installed in "/opt/lampp/bin/mysql" so as to not experience password conflicts with the automatic setup and updating process.
+
+If you wish to host and test the website, you will also be required to clone this repository to "/opt/lampp/htdocs", which will enable PHP execution and Apache hosting, as well as lifting read-write restrictions on the cloned folder with chmod.
+
+To download and store data peridically to display later with the website, you can assign a crontab task by adding the following line to run every hour of the day:
+
+0 * * * * bash /opt/lampp/htdocs/RepossitorioHindu/test_setup.sh setup
 
 The requeriments for this project are in the document named "Requeriments.txt".
 
