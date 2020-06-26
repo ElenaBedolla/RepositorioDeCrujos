@@ -90,6 +90,8 @@ To download and store data peridically to display later with the website, you ca
 
 0 * * * * bash /opt/lampp/htdocs/RepossitorioHindu/test_setup.sh setup
 
+You can access the jobs file easily through the crontab -e command.
+
 The requeriments for this project are in the document named "Requeriments.txt".
 
 **Conclusions:**
