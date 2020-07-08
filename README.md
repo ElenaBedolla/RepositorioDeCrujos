@@ -7,17 +7,11 @@ Practice 1, Revision 1, English Version
 
 **Computo distribuido**
 
-Lilia Daniela Salazar Herrera -danylily@icloud.com
-
 María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
 
 **Introducción a la exploración geofísica**
 
 Jorge Antonio Camarena Pliego
-
-Josué Soto Cortez
-
-Gilberto Carlos Domínguez Aguilar
 
 **Introduction**
 
