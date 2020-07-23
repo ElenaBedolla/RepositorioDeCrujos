@@ -4,7 +4,7 @@ Practice 1, Revision 1, English Version
 
 
 **Team members:**
-Hola
+
 **Computo distribuido**
 
 María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
