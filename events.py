@@ -11,9 +11,17 @@ def parse_event(event):
     sec,msec=s.split(".")
     if (len(sec)<2):
         sec="0"+sec
-        # Eliminar letras en caso de que aparezcan
-    evla=re.sub('[A-Za-z]', '', lat[:7]) # Latitud
-    evlo=re.sub('[A-Za-z]', '', lon[:8]) # Longitud
+    # Eliminar letras en caso de que aparezcan
+    #evla=re.sub('[A-Za-z]', '', lat[:7]) # Latitud
+    #evlo=re.sub('[A-Za-z]', '', lon[:8]) # Longitud
+    if lat[-1] == "S":
+        evla = -float(lat[:-1])
+    else:
+        evla = float(lat[:-1])
+    if lon[-1] == "W":
+        evlo = -float(lon[:-1])
+    else:
+        evlo = float(lon[:-1]) 
     evdp=dep # Profundidad [km]
     evmag=mag # Magnitud sismica en escala Richter
     return year, month, day, hour, minutes, sec, msec, evla, evlo, evdp, evmag

@@ -10,7 +10,7 @@ import re, os, shutil, glob, random
 from events import parse_event
 
 end_time = datetime.datetime.now() 
-start_time = end_time-datetime.timedelta(hours=24) # Intervalo de busqueda desde 12 horas anteriores a la actual
+start_time = end_time-datetime.timedelta(hours=48) # Intervalo de busqueda desde 12 horas anteriores a la actual
 starttime = UTCDateTime(start_time.isoformat())
 print(start_time.isoformat())
 endtime = UTCDateTime(end_time.isoformat())
@@ -18,12 +18,12 @@ endtime = UTCDateTime(end_time.isoformat())
 #latitude=15
 #longitude=-90
 minradius=0
-maxradius=10
+maxradius=5
 mindepth = 0
 maxdepth = 100
-minmagnitude=5
+minmagnitude=7
 maxmagnitude=10
-max_sta = 10
+max_sta = 5
 tmpfile="tmp.catalog"
 catalog="catalog.dat"
 stationfile = "STATIONS.sta"

@@ -12,7 +12,9 @@ then
     python waveform_download.py
     python data_import/import_stations.py
     python data_import/import_channels.py
-    python data_import/update_earthquakes.py
+    cd ..
+    python -m RepositorioDeCrujos.data_import.update_earthquakes
+    cd RepositorioDeCrujos
     python spectrograms.py
     python map.py
 elif [ $1 == 'update' ]

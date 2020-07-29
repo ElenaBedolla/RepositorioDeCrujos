@@ -13,6 +13,8 @@ with open(eventfile, "r") as f:
 events_t = list(zip(*events))
 evlas = list(map(float, events_t[7]))
 evlos = list(map(float, events_t[8]))
+print(evlos)
+print(evlas)
 max_evla = max(evlas)
 min_evla = min(evlas)
 max_evlo = max(evlos)

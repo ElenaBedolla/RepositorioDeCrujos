@@ -100,7 +100,7 @@ with open(tmpfile,"r") as events:
                                     st1[0].stats.sac.stlo=stlo
                                     st1[0].stats.sac.stel=elev
                                     st1[0].stats.sac.evla=evla
-                                    st1[0].stats.sac.evlo="-"+evlo
+                                    st1[0].stats.sac.evlo=evlo
                                     st1[0].stats.sac.evdp=evdp
                                     st1[0].stats.sac.mag=evmag				    
                                     st1[0].stats.sac.nzsec+=10
