@@ -6,15 +6,14 @@ import json
 import datetime
 import shutil
 import sys
+import re
 #sys.path.append("/opt/lampp/htdocs/RepositorioDeCrujos")
 #sys.path.insert(0, "..")
 from .. import parse_event
+from .. import connect_db
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  database="Sismos",
-  user="root"
-)
+cur_path = os.path.dirname(__file__)
+mydb = connect_db(cur_path, "../credentials.json")
 
 cursor = mydb.cursor()
 
@@ -33,7 +32,6 @@ cursor.execute(delete_previous)
 
 add_event = ("INSERT INTO EARTHQUAKE(id, date_time, latitude, longitude, depth,magnitude) VALUES (%s,%s, %s, %s, %s,%s)")
 
-cur_path = os.path.dirname(__file__)
 filename = os.path.join(cur_path, '../tmp.catalog')
 
 f = open(filename, 'r')

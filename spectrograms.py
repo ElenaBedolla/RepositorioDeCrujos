@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use('Agg')
+
 from obspy import read
 from obspy.core.stream import Stream
 import matplotlib.pyplot as plt
@@ -8,7 +11,9 @@ from os import path
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
 j = cm.get_cmap('jet')
-main_folder = 'Template/'
+cur_path = os.path.dirname(__file__)
+rel_main_folder = 'Template/'
+main_folder = os.path.join(cur_path, rel_main_folder)
 event_folders = os.listdir(main_folder)
 for event_folder in event_folders:
     event_data = event_folder.split('-')

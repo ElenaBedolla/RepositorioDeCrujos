@@ -1,9 +1,11 @@
 import folium
 import os
-from events import parse_event
+from . import parse_event
 import json
 
-eventfile = "tmp.catalog"
+tmp_file = "tmp.catalog"
+cur_path = os.path.dirname(__file__)
+eventfile = os.path.join(cur_path, tmp_file)
 with open(eventfile, "r") as f:
     events=[]
     for event in f:
@@ -50,5 +52,6 @@ for i, event in enumerate(events):
 
 
 m.fit_bounds([[min_evla, min_evlo], [max_evla, max_evlo]])
-m.save(outfile= "website/map.html")
+outfile = os.path.join(cur_path, "website/map.html")
+m.save(outfile=outfile)
 

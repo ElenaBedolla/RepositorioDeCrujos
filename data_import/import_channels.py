@@ -1,15 +1,13 @@
 import mysql.connector
 import os
+import re
+from .. import connect_db
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  database="Sismos",
-  user="root"
-)
+cur_path = os.path.dirname(__file__)
+mydb = connect_db(cur_path, "../credentials.json")
 cursor = mydb.cursor()
 add_channel = ("INSERT INTO CHANNEL(symbol, station) VALUES (%s, %s)")
 
-cur_path = os.path.dirname(__file__)
 filename = os.path.join(cur_path, '../STATIONS.sta')
 
 f = open(filename, 'r')
