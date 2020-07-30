@@ -8,3 +8,6 @@ scp.put(sql, "~/RepositorioDeCrujos/db_def")
 
 template = os.path.join(cur_path, "Template")
 scp.put(template, "~/RepositorioDeCrujos", recursive=True)
+
+map_html = os.path.join(cur_path, "website/map.html")
+scp.put(template, "~/RepositorioDeCrujos/website")
