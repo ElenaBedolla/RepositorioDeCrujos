@@ -8,22 +8,22 @@ then
     fi
     /opt/lampp/bin/mysql -u root -e "CREATE DATABASE Sismos"
     /opt/lampp/bin/mysql -u root Sismos < db_def/Sismos.sql
-    python get_event_stations.py
-    python waveform_download.py
+    python3 get_event_stations.py
+    python3 waveform_download.py
     cd ..
-    python -m RepositorioDeCrujos.data_import.import_stations
-    python -m RepositorioDeCrujos.data_import.import_channels
-    python -m RepositorioDeCrujos.data_import.update_earthquakes
-    python -m RepositorioDeCrujos.spectrograms
-    python -m RepositorioDeCrujos.map
+    python3 -m RepositorioDeCrujos.data_import.import_stations
+    python3 -m RepositorioDeCrujos.data_import.import_channels
+    python3 -m RepositorioDeCrujos.data_import.update_earthquakes
+    python3 -m RepositorioDeCrujos.spectrograms
+    python3 -m RepositorioDeCrujos.map
     /opt/lampp/bin/mysql -u root Sismos > RepositorioDeCrujos/db_def/Sismos_backup.sql
-    python -m RepositorioDeCrujos.transfer
+    python3 -m RepositorioDeCrujos.transfer
     cd RepositorioDeCrujos
 elif [ $1 == 'server' ]
 then
-    mysql_creds=$(python connect.py)
+    mysql_creds=$(python3 connect.py)
     mysql_split=(${mysql_creds})
-    echo ${mysql_split[0]}
+    echo ${mysql_split[@]}
     mysql -u ${mysql_split[1]} -p${mysql_split[2]} ${mysql_split[0]} < db_def/Sismos_backup.sql
 fi
 /opt/lampp/bin/mysql -u root -D Sismos -e "SELECT * FROM EARTHQUAKE"
