@@ -23,7 +23,17 @@ elif [ $1 == 'server' ]
 then
     mysql_creds=$(python3 connect.py)
     mysql_split=(${mysql_creds})
-    echo ${mysql_split[@]}
-    mysql -u ${mysql_split[1]} -p${mysql_split[2]} ${mysql_split[0]} < db_def/Sismos_backup.sql
+    user=${mysql_split[1]}
+    password=${mysql_split[2]}
+    database=${mysql_split[0]}
+    if [[ ! -z "`mysql -u $user -p$password "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='$database'" 2>&1`" ]];
+    then
+	    mysql -u $user -p$password $database < prepare.sql
+	    #echo 1
+	    #mysql -u $user -p$password -D $database -e "DROP TABLE ?"
+	    #echo 2
+    fi
+    mysql -u $user -p$password $database < db_def/Sismos_backup.sql
+    #echo 3
 fi
 /opt/lampp/bin/mysql -u root -D Sismos -e "SELECT * FROM EARTHQUAKE"
