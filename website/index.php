@@ -82,27 +82,29 @@ if (session_status() == PHP_SESSION_NONE) {
         
     <br>
     <section id="map">
-      <div class="container">
       <p id="defin"><br><br><br></p>
         <center><h2>Eventos</h2></center>
-        <div class="row justify-content-center">
-        <div class="col-5 text-center">
-            <form method='post'>
+            <!--<form method='post'>
                 <input type="submit" name="reset" value="Reset"/>
-                <?
-                if(!empty($_POST['reset']))
-                    {
-                        $_SESSION = [];
-                        echo "Reset exitoso";
-                    }
-                ?>
-            </form>
-            <iframe id="inlineFrameExample"
+               //<?
+                //if(!empty($_POST['reset']))
+                    //{
+                        //$_SESSION = [];
+                        //echo "Reset exitoso";
+                    //}
+                //?> 
+            </form> -->
+            <!--<center><iframe id="inlineFrameExample"
                     title="Inline Frame Example"
-                    width="500"
-                    height="500"
+                    width="700px"
+                    height="700px"
                     src="map.html">
-            </iframe>
+            </iframe></center> -->
+            
+            
+            <div class="embed-container">
+            <center><iframe width="1200" height="700" src="map.html" frameborder="0" allowfullscreen></iframe></center>
+            </div>
             <?
             if(isset($_POST['earthquake']))
             {
@@ -117,8 +119,6 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
       </div>
     </section>
-    <br>
-    <br>
             <?
             if(!empty($_SESSION['earthquake']))
             {
@@ -226,11 +226,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <br>
     <!-- SECTION -->
     <section id="espectro">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <div class="header-content-left">
-            <p id="spectro"><br><br><br></p>
+            <p id="spectro"><br><br><br><center><h2>Espectrograma</h2></center></p>
             <?
             /*
             if(!empty($_SESSION['earthquake']))
@@ -239,50 +235,23 @@ if (session_status() == PHP_SESSION_NONE) {
                 $date_time = $_SESSION['earthquake'][1];
             */
             ?>
-            <img src="<? echo "../Template/$date_time-$earthquake_id/$selection/spectrograms_plot.png"; ?>" style="width: 100%;">
+            <center><img src="<? echo "../Template/$date_time-$earthquake_id/$selection/spectrograms_plot.png"; ?>" style="width: 40%;" style="height: 40%;"></center>
              <!--<img src="img/f1.png" style="width: 100%;">-->
-            </div>  
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="header-content-right">
-            <br><br><br>
-            <h1 class="display-4">Espectrograma</h1>
-              <p class="mt-5">El espectrograma es el resultado de calcular el espectro de tramas enventanadas de una señal. Resulta una gráfica tridimensional que representa la energía del contenido frecuencial de la señal según va variando ésta a lo largo del tiempo. El espectrograma es una herramienta básica de representación que se utiliza para el análisis de las señales eléctricas, de comunicaciones, y cualquier señal audiovisual en su contenido frecuencial.</p>
-              <a href="https://es.wikipedia.org/wiki/Espectrograma" class="btn btn-outline-secondary header-btn btn-lg mt-2">Read More</a>
-            </div>
-        </div>
-      </div>
+          
     </section>
     <br>
     <br>
     <br>
     <!-- SECTION -->
     <section id="sismog">
-    <div class="container mt-3">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <div class="header-content-right mt-5"><br><br>
-              <h1 class="display-4">Sismograma</h1>
-              <p class="mt-5">Un sismograma es un registro del movimiento del suelo llevado a cabo por un sismógrafo. La energía medida en un sismograma resulta de fuentes naturales como son los sismos (o terremotos), o de fuentes artificiales como son los explosivos (sismos inducidos).Dado que las ondas P se propagan a mayor velocidad que otros tipos de ondas, son las primeras en ser registradas en un sismograma. Después llegan las ondas S y por fin las ondas superficiales (ondas Rayleigh y ondas Love).</p>
-              <a href="https://es.wikipedia.org/wiki/Sismograma" class="btn btn-outline-secondary header-btn btn-lg mt-2">Read More</a>
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-sm-6">
-             <div class="header-content-left">
-             <p id="seis"><br><br></p><br>
-            <img src="<? echo "../Template/$date_time-$earthquake_id/$selection/seismograms_plot.png"; ?>" style="width: 100%;">
+             <!--<a href="https://es.wikipedia.org/wiki/Sismograma" class="btn btn-outline-secondary header-btn btn-lg mt-2">Read More</a>-->
+             <p id="seis"><br><br><center><h2>Sismograma</h2></center></p><br>
+            <center><img src="<? echo "../Template/$date_time-$earthquake_id/$selection/seismograms_plot.png"; ?>" style="width: 50%;" style="height: 40%;"></center>
             <?
         } # Cierre del if que verifica si ya se selecciono una estacion
     }  # Cierre de los primeros if que verifica si ya se selecciono un sismo
             ?>
               <!--<img src="img/f2.png" style="width: 100%;">-->
-            </div>
-         
-            
-            </div>
-        </div>
-      </div>
     </section>
     <br>
       

@@ -5,13 +5,13 @@ body {
 
 .navbar-brand {
   font-size: 30px;
-  color: #f0e5e5;
+  color: #FFFFFF;
   font-weight: bold;
 }
 
 
 footer {
-  background:#f6f6fa;
+  background: #FFFFFF;
   height: 200px;
   
 }
@@ -19,3 +19,4 @@ footer {
     float: none;
     margin: 0 auto;
 }
+
