@@ -16,7 +16,9 @@ then
     python3 -m RepositorioDeCrujos.data_import.update_earthquakes
     python3 -m RepositorioDeCrujos.spectrograms
     python3 -m RepositorioDeCrujos.map
-    /opt/lampp/bin/mysql -u root Sismos > RepositorioDeCrujos/db_def/Sismos_backup.sql
+    echo Backing up database
+    /opt/lampp/bin/mysqldump -u root --databases Sismos > RepositorioDeCrujos/db_def/Sismos_backup.sql
+    echo Transferring data
     python3 -m RepositorioDeCrujos.transfer
     cd RepositorioDeCrujos
 elif [ $1 == 'server' ]

@@ -27,7 +27,7 @@ def connect_SCP(cur_path, rel_cred_file):
     credentials=load_credentials(cur_path, credentials_file)
     client.connect(**credentials["SSH"])
     scp = SCPClient(client.get_transport())
-    return scp
+    return client, scp
 
 if __name__ == "__main__":
     cur_path = os.path.dirname(__file__)
