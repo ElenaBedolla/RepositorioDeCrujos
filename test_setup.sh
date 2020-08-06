@@ -6,7 +6,7 @@ database=${mysql_split[0]}
 if [ $1 == 'processor' ];
 then
     rm -R Template
-    if [[ ! -z "`mysql -u $user -p$password "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='Sismos'" 2>&1`" ]];
+    if [[ ! -z "`mysql -u $user -p$password "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='$database'" 2>&1`" ]];
     then
         mysql -u $user -p$password -e "DROP DATABASE $database" 
         echo Deleted previous database      
@@ -22,7 +22,7 @@ then
     python3 -m RepositorioDeCrujos.spectrograms
     python3 -m RepositorioDeCrujos.map
     echo Backing up database
-    mysqldump -u $user -p$password --databases Sismos > RepositorioDeCrujos/db_def/Sismos_backup.sql
+    mysqldump -u $user -p$password --databases $database > RepositorioDeCrujos/db_def/Sismos_backup.sql
     echo Transferring data
     python3 -m RepositorioDeCrujos.transfer
     cd RepositorioDeCrujos
