@@ -8,11 +8,11 @@ then
     rm -R Template
     if [[ ! -z "`mysql -u $user -p$password "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='Sismos'" 2>&1`" ]];
     then
-        mysql -u $user -p$password -e "DROP DATABASE Sismos" 
+        mysql -u $user -p$password -e "DROP DATABASE $database" 
         echo Deleted previous database      
     fi
-    mysql -u $user -p$password -e "CREATE DATABASE Sismos"
-    mysql -u $user -p$password Sismos < db_def/Sismos.sql
+    mysql -u $user -p$password -e "CREATE DATABASE $database"
+    mysql -u $user -p$password $database < db_def/Sismos.sql
     python3 get_event_stations.py
     python3 waveform_download.py
     cd ..
@@ -36,4 +36,4 @@ then
     mysql -u $user -p$password $database < db_def/Sismos_backup.sql
 fi
 
-mysql -u $user -p$password -D Sismos -e "SELECT * FROM EARTHQUAKE"
+mysql -u $user -p$password -D $database -e "SELECT * FROM EARTHQUAKE"
