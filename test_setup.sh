@@ -1,13 +1,18 @@
+mysql_creds=$(python3 connect.py)
+mysql_split=(${mysql_creds})
+user=${mysql_split[1]}
+password=${mysql_split[2]}
+database=${mysql_split[0]}
 if [ $1 == 'processor' ];
 then
     rm -R Template
-    if [[ ! -z "`/opt/lampp/bin/mysql -u root "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='Sismos'" 2>&1`" ]];
+    if [[ ! -z "`mysql -u $user -p$password "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='Sismos'" 2>&1`" ]];
     then
-        /opt/lampp/bin/mysql -u root -e "DROP DATABASE Sismos" 
+        mysql -u $user -p$password -e "DROP DATABASE Sismos" 
         echo Deleted previous database      
     fi
-    /opt/lampp/bin/mysql -u root -e "CREATE DATABASE Sismos"
-    /opt/lampp/bin/mysql -u root Sismos < db_def/Sismos.sql
+    mysql -u $user -p$password -e "CREATE DATABASE Sismos"
+    mysql -u $user -p$password Sismos < db_def/Sismos.sql
     python3 get_event_stations.py
     python3 waveform_download.py
     cd ..
@@ -17,25 +22,18 @@ then
     python3 -m RepositorioDeCrujos.spectrograms
     python3 -m RepositorioDeCrujos.map
     echo Backing up database
-    /opt/lampp/bin/mysqldump -u root --databases Sismos > RepositorioDeCrujos/db_def/Sismos_backup.sql
+    mysqldump -u $user -p$password --databases Sismos > RepositorioDeCrujos/db_def/Sismos_backup.sql
     echo Transferring data
     python3 -m RepositorioDeCrujos.transfer
     cd RepositorioDeCrujos
 elif [ $1 == 'server' ]
 then
-    mysql_creds=$(python3 connect.py)
-    mysql_split=(${mysql_creds})
-    user=${mysql_split[1]}
-    password=${mysql_split[2]}
-    database=${mysql_split[0]}
     if [[ ! -z "`mysql -u $user -p$password "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='$database'" 2>&1`" ]];
     then
 	    mysql -u $user -p$password $database < prepare.sql
-	    #echo 1
-	    #mysql -u $user -p$password -D $database -e "DROP TABLE ?"
-	    #echo 2
+	    echo Deleted previous tables
     fi
     mysql -u $user -p$password $database < db_def/Sismos_backup.sql
-    #echo 3
 fi
-/opt/lampp/bin/mysql -u root -D Sismos -e "SELECT * FROM EARTHQUAKE"
+
+mysql -u $user -p$password -D Sismos -e "SELECT * FROM EARTHQUAKE"
