@@ -74,16 +74,14 @@ The set of tools that the distribution system includes meaning the combination o
 
 **Test:**
 
-Easy testing can be done by running the test_setup.sh file as: 
+Easy testing can be done by running the test_setup.sh file as follows: 
 "bash test_setup.sh processor" for a single execution of the processor node in charge of downloading, processing and transferring the data to the server,
 or,
 "bash test_setup.sh server" for a single execution of the server node in charge of hosting the web server with the updated information on the website.
 
-To easily test this project with said file on the processor node, you must be running MySQL and Apache2 Xampp servers installed in "/opt/lampp/bin/mysql" and "/opt/lampp/bin/apache2" respectively so as to not experience password conflicts with the automatic setup and updating process.
+For this project to run with said file on either the processor or server nodes, you must be running MySQL and Apache2 servers to update the respective databases and for PHP execution to work with the website on the server.
 
-If you wish to host and test the website on the processor node, you may choose to clone this repository to "/opt/lampp/htdocs", which will enable PHP execution and Apache2 hosting. Just note that you should lift read-write restrictions on the cloned folder with chmod.
-
-As for the server node, custom security credentials are supported for 
+For both the processor and server nodes, custom security credentials are supported and a sample .json credential file (credentials.json) can be found on the repository to specify the user, password and database for MySQL as well as the user and password for the SSH connection with the server, used by the processor.
 
 The final and intended purpose is for this project to be executed periodically with crontab on both the server and processor nodes. As an example, if you would like to download new data every hour on the first minute, you would add the following line to the processor node's crontab file:
 
