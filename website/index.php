@@ -131,11 +131,14 @@ if (session_status() == PHP_SESSION_NONE) {
         <center><h2>Estaciones</h2></center>
         <div class="row justify-content-center">
         <div class="col-5 text-center">
-            <?                
-                $dbhost = 'localhost';
-                $dbuser = 'root';
-                $dbpass = '';
-                $dbname = 'Sismos';
+            <?
+                $string = file_get_contents("../credentials.json");
+                $json_creds = json_decode($string, true);
+
+                $dbhost = $json_creds['MySQL']['host'];
+                $dbuser = $json_creds['MySQL']['user'];
+                $dbpass = $json_creds['MySQL']['password'];
+                $dbname = $json_creds['MySQL']['database'];
                 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
                 if(! $conn){
