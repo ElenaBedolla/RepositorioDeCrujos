@@ -81,7 +81,7 @@ or,
 
 For this project to run with said file on either the processor or server nodes, you must be running MySQL and Apache2 servers to update the respective databases and for PHP execution to work with the website on the server.
 
-For both the processor and server nodes, custom security credentials are supported and a sample .json credential file (credentials.json) can be found on the repository to specify the user, password and database for MySQL as well as the user and password for the SSH connection with the server, used by the processor.
+For both the processor and server nodes, custom security credentials are supported and a sample .json credential file (credentials.json) can be found on the repository to specify the user, password and database for MySQL as well as the user and password for the SSH connection with the server, used by the processor. Note that for establishing a local connection, specifying the 127.0.0.1 address is preferred to "localhost" as a potential issue with PHP MySQL connection has been found with the use of "localhost".
 
 The final and intended purpose is for this project to be executed periodically with crontab on both the server and processor nodes. As an example, if you would like to download new data every hour on the first minute, you would add the following line to the processor node's crontab file:
 
