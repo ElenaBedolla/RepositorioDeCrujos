@@ -116,7 +116,9 @@ Different values for the minimum magnitude parameter were tested, while leaving 
  * The earthquakes ocurred in the last 24 hours
  
 Minimum Magnitude: 5, time: 135 seconds (for 4 earthquakes)
+
 Minimum Magnitude: 4.5, time: 885 seconds (for 8 earthquakes)
+
 Minimum Magnitude: 4, time: 2299 seconds (for 10 earthquakes)
 
 **Conclusions:**
