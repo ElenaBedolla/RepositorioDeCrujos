@@ -84,24 +84,6 @@ if (session_status() == PHP_SESSION_NONE) {
     <section id="map">
       <p id="defin"><br><br><br></p>
         <center><h2>Eventos</h2></center>
-            <!--<form method='post'>
-                <input type="submit" name="reset" value="Reset"/>
-               //<?
-                //if(!empty($_POST['reset']))
-                    //{
-                        //$_SESSION = [];
-                        //echo "Reset exitoso";
-                    //}
-                //?> 
-            </form> -->
-            <!--<center><iframe id="inlineFrameExample"
-                    title="Inline Frame Example"
-                    width="700px"
-                    height="700px"
-                    src="map.html">
-            </iframe></center> -->
-            
-            
             <div class="embed-container">
             <center><iframe width="1200" height="700" src="map.html" frameborder="0" allowfullscreen></iframe></center>
             </div>
@@ -109,11 +91,7 @@ if (session_status() == PHP_SESSION_NONE) {
             if(isset($_POST['earthquake']))
             {
                 $_SESSION['earthquake'] = json_decode($_POST['earthquake'], true);
-                //echo $_SESSION['earthquake'];
             }
-            //foreach($_SESSION as $result) {
-            //    echo $result, '<br>';
-            //}
             ?>
         </div>
         </div>
@@ -171,52 +149,12 @@ if (session_status() == PHP_SESSION_NONE) {
                         $_SESSION['station'] = $_POST['station'];
                     }
                     ?>
-                    </form>
+                </form>
                     <?
                     if(!empty($_SESSION['station']))
                     {
-                        #echo $_SESSION['station'];
                         $selection = $_SESSION['station'];
-                        /*
-                        $sql = "SELECT DISTINCT e.* FROM EARTHQUAKE AS e INNER JOIN CHANNEL_EARTHQUAKE AS ce ON e.id = ce.earthquake_id WHERE ce.station = '$selection' ORDER BY e.id ASC;";
-                        #echo $sql;
-                        $date_times = array();
-                        $result = mysqli_query($conn, $sql);
-                        if(mysqli_num_rows($result) > 0)
-                        {
-                            echo("<table border = 1>");
-                            echo("<tr>
-                                <th>ID</th>
-                                <th>Fecha y Hora</th>
-                                <th>Latitud</th>
-                                <th>Longitud</th>
-                                <th>Profundidad</th>
-                                <th>Magnitud</th>
-                            </tr>");
-                            ?>
-                            <form method="post" action="">
-                            <?
-                                while($row = mysqli_fetch_assoc($result)){
-                                    #$temp = new DateTime($row["date_time"]
-                                    $date_time = date_format(new DateTime($row["date_time"]),'YmdHis');
-                                    array_push($date_times, $date_time);
-                                    echo("<tr>
-                                        <td>".$row["id"]."</td>
-                                        <td>".$row["date_time"]."</td>
-                                        <td>".$row["latitude"]."</td>
-                                        <td>".$row["longitude"]."</td>
-                                        <td>".$row["depth"]."</td>
-                                        <td>".$row["magnitude"]."</td>
-                                        <td><button name='earthquake' type='submit' value=".json_encode(array(strval($row["id"]), $date_time)).">X</button>
-                                        </tr>");
-                                }
-                                echo("</table>");
-                                if(!empty($_POST['earthquake']))
-                                {
-                                    $_SESSION['earthquake'] = json_decode($_POST['earthquake'], true);
-                                }
-                                */
-                            ?>
+                    ?>
                         </form>
             </div>
             </div>
@@ -230,16 +168,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <!-- SECTION -->
     <section id="espectro">
             <p id="spectro"><br><br><br><center><h2>Espectrograma</h2></center></p>
-            <?
-            /*
-            if(!empty($_SESSION['earthquake']))
-            {
-                $earthquake_id = $_SESSION['earthquake'][0];
-                $date_time = $_SESSION['earthquake'][1];
-            */
-            ?>
             <center><img src="<? echo "../Template/$date_time-$earthquake_id/$selection/spectrograms_plot.png"; ?>" style="width: 40%;" style="height: 40%;"></center>
-             <!--<img src="img/f1.png" style="width: 100%;">-->
           
     </section>
     <br>
@@ -247,14 +176,12 @@ if (session_status() == PHP_SESSION_NONE) {
     <br>
     <!-- SECTION -->
     <section id="sismog">
-             <!--<a href="https://es.wikipedia.org/wiki/Sismograma" class="btn btn-outline-secondary header-btn btn-lg mt-2">Read More</a>-->
              <p id="seis"><br><br><center><h2>Sismograma</h2></center></p><br>
             <center><img src="<? echo "../Template/$date_time-$earthquake_id/$selection/seismograms_plot.png"; ?>" style="width: 50%;" style="height: 40%;"></center>
             <?
         } # Cierre del if que verifica si ya se selecciono una estacion
     }  # Cierre de los primeros if que verifica si ya se selecciono un sismo
             ?>
-              <!--<img src="img/f2.png" style="width: 100%;">-->
     </section>
     <br>
       
