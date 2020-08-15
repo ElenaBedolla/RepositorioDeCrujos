@@ -30,7 +30,7 @@ Because we want to simplify the visualization of earth tremors that IRIS registe
 - Create a tool that generates seismograms and spectrograms in real time from the seismic stations that are registered in IRIS (Incorporated Research Institutions for Seismology).
 - We´re going to provide a tool for people that works in seismology with the purpose to make easier their work through the visualization of the registered events and the statistics of the earthquakes.
 
-**What we want to show?**
+**What do we want to show?**
 
 We want to display the statistics, seismograms and spectrograms from the distinct seismologic stations all of this with a distributed system that lets us monitor all these data.
 
@@ -54,9 +54,17 @@ The set of tools that the distribution system includes meaning the combination o
 **Metodology:**
 ![IRIS](/images/1.JPG)
 
-**General Archictecture and development diagram**
+**General Archictecture**
 ![IRIS](/images/2.JPG)
+
+**State Diagram**
+![State](/images/State Diagram.jpg)
+
+**Development Diagram**
 ![IRIS](/images/3.JPG)
+
+**Sequence Diagram**
+![Seq](/images/Secuence Diagram.jpg)
 
 **Approximate cost of development**
 
