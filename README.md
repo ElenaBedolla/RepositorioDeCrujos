@@ -51,22 +51,28 @@ The set of tools that the distribution system includes meaning the combination o
 - RabbitMQ (Optional)
 - Django
 
-**Metodology:**
+**Metodology**
+
 ![IRIS](/images/1.JPG)
 
 **General Archictecture**
+
 ![IRIS](/images/2.JPG)
 
 **Case Diagram**
+
 ![Case](/images/case.png)
 
 **State Diagram**
+
 ![State](/images/state.jpg)
 
 **Development Diagram**
+
 ![IRIS](/images/3.JPG)
 
 **Sequence Diagram**
+
 ![Seq](/images/seq.jpg)
 
 **Approximate cost of development**
