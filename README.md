@@ -58,13 +58,13 @@ The set of tools that the distribution system includes meaning the combination o
 ![IRIS](/images/2.JPG)
 
 **State Diagram**
-![State](/images/State Diagram.jpg)
+![State](/images/state.jpg)
 
 **Development Diagram**
 ![IRIS](/images/3.JPG)
 
 **Sequence Diagram**
-![Seq](/images/Secuence Diagram.jpg)
+![Seq](/images/seq.jpg)
 
 **Approximate cost of development**
 
