@@ -93,17 +93,17 @@ The set of tools that the distribution system includes meaning the combination o
 
 First Increment
 
-1.As a user, I want the system to graph the spectrograms of the most relevant seismic events.
+1. As a user, I want the system to graph the spectrograms of the most relevant seismic events.
 2. As a user, I want the system to graph the seismograms of the most relevant seismic events.
 3. As a work team, we want to document the objectives of the project and general information about it.
 As a work team, we want to evaluate the operating system in which we are going to develop the project and the technological resources that we have, first individually and then by team.
-5.As a technology administrator, we create a repository in GITHUB where we will store everything related to the project.
-6.As a Back end 2 developer, I want to develop a Python script that downloads the data from the provider site, IRIS and a script that graphs the seismograms and spectrograms as images.
+5. As a technology administrator, we create a repository in GITHUB where we will store everything related to the project.
+6. As a Back end 2 developer, I want to develop a Python script that downloads the data from the provider site, IRIS and a script that graphs the seismograms and spectrograms as images.
 7. As a Back end 1 developer, I want to develop a database in which I store data such as latitude, longitude, magnitude, duration, seismograms as data series, stations, channels, date and time of the event.
 8. As a Back end 1 developer, I want to develop a script that finds the stations and gives you information about the events detected by them.
 9. As a Back end 2 developer, I want to generate some scripts that feed the database, once the data is acquired.
 10. As a Back end 2 developer, I want to run and test the developed scripts locally.
-11.As a Font end 1 developer, I want to generate a simple web template that shows the user the seismograms and spectrograms in real time.
+11. As a Font end 1 developer, I want to generate a simple web template that shows the user the seismograms and spectrograms in real time.
 12. As a Font end 1 developer, I want to generate a logo to give the project identity.
 13. As a Font end 1 developer, I want to color the web template, according to the colors used in the logo.
 
