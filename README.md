@@ -103,6 +103,22 @@ You can access the cronjobs file easily through the crontab -e command.
 
 The library requeriments for this project are in the document labeled "Requeriments.txt".
 
+**Efficiency Results**
+
+The following is a series of execution time measures taken by the processor node to complete all downloading, processing, database creation and data transfer to server steps. Updating times for the server node are not taken into consideration since this is a very light process, so most of the heavy lifting is done on the processor's side.
+
+It should be noted that other variables outside of the experiment's control may have affected the measures directly, such as the processor's specifications, which in this case are decent (Intel Core i7 7700HQ, 8 GB RAM), and the Internet's bandwidth, which are in contrast very poor.
+
+Different values for the minimum magnitude parameter were tested, while leaving the followung parameters fixed:
+
+ * Unlimited number of stations can be detected
+ * Maximum distance to include a station is of 5 degrees (1 degree is approximately equal to 111km)
+ * The earthquakes ocurred in the last 24 hours
+ 
+Minimum Magnitude: 5, time: 135 seconds (for 4 earthquakes)
+Minimum Magnitude: 4.5, time: 885 seconds (for 8 earthquakes)
+Minimum Magnitude: 4, time: 2299 seconds (for 10 earthquakes)
+
 **Conclusions:**
 
 During the acquisition of data, a series of problems arose, since an interpretation of these had to be made, given that it was necessary to evaluate whether what we were downloading would help us achieve our objective when it came to visualizing the information. Practically this part was the one that took us the longest, since several tests were carried out, in addition to a collaboration with students of the subject Introduction to geophysical exploration to support us with geoprocessing and its interpretation. In this practice the points on which they are going to work on this project were established, all this under the methodology of Extreme programming and it is with this that the documentation of it begins.
