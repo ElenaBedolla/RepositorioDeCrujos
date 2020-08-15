@@ -57,6 +57,9 @@ The set of tools that the distribution system includes meaning the combination o
 **General Archictecture**
 ![IRIS](/images/2.JPG)
 
+**Case Diagram**
+![Case](/images/case.png)
+
 **State Diagram**
 ![State](/images/state.jpg)
 
@@ -79,6 +82,9 @@ The set of tools that the distribution system includes meaning the combination o
 
         IRIS (Incorporated Research Institutions for Seismology)
 ![IRIS](/images/Diapositiva5.JPG)
+
+**Database Class Diagram**
+![Class](/images/class.jpg)
 
 **Test:**
 
