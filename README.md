@@ -161,6 +161,8 @@ And, ideally, the server node should be updating it's own data regularly, so it 
 
 You can access the cronjobs file easily through the crontab -e command.
 
+To mount the web server on the server node, Apache could be a possible option, and if it is to be previewed on the processor node, it is suggested to execute and Apache XAMPP server and move the reposittory to /opt/lampp/htdocs while also changing all relevant permissions to allow PHP execution.
+
 The library requeriments for this project are in the document labeled "Requeriments.txt".
 
 **Efficiency Results**
