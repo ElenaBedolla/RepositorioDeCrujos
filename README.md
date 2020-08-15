@@ -91,7 +91,7 @@ The set of tools that the distribution system includes meaning the combination o
 
 **User story**
 
-First Increment
+First Increment:
 
 1. As a user, I want the system to graph the spectrograms of the most relevant seismic events.
 2. As a user, I want the system to graph the seismograms of the most relevant seismic events.
@@ -107,7 +107,7 @@ As a work team, we want to evaluate the operating system in which we are going t
 12. As a Font end 1 developer, I want to generate a logo to give the project identity.
 13. As a Font end 1 developer, I want to color the web template, according to the colors used in the logo.
 
-Second Increment
+Second Increment:
 
 1. As a Font end 1 developer, I decided to give the template a more modern look, in addition to making adjustments to the client's main needs and requests. In your case, Bootstrap technology is integrated to make it responsive to all types of devices with internet access, an easy-to-navigate template is also generated, and light colors are used.
 2. As a Font end 1 developer, I solve anchoring problems that are shown when testing with the work team.
