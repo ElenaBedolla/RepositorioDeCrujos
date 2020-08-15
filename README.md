@@ -89,6 +89,54 @@ The set of tools that the distribution system includes meaning the combination o
         IRIS (Incorporated Research Institutions for Seismology)
 ![IRIS](/images/Diapositiva5.JPG)
 
+**User story**
+
+First Increment
+
+1.As a user, I want the system to graph the spectrograms of the most relevant seismic events.
+2. As a user, I want the system to graph the seismograms of the most relevant seismic events.
+3. As a work team, we want to document the objectives of the project and general information about it.
+As a work team, we want to evaluate the operating system in which we are going to develop the project and the technological resources that we have, first individually and then by team.
+5.As a technology administrator, we create a repository in GITHUB where we will store everything related to the project.
+6.As a Back end 2 developer, I want to develop a Python script that downloads the data from the provider site, IRIS and a script that graphs the seismograms and spectrograms as images.
+7. As a Back end 1 developer, I want to develop a database in which I store data such as latitude, longitude, magnitude, duration, seismograms as data series, stations, channels, date and time of the event.
+8. As a Back end 1 developer, I want to develop a script that finds the stations and gives you information about the events detected by them.
+9. As a Back end 2 developer, I want to generate some scripts that feed the database, once the data is acquired.
+10. As a Back end 2 developer, I want to run and test the developed scripts locally.
+11.As a Font end 1 developer, I want to generate a simple web template that shows the user the seismograms and spectrograms in real time.
+12. As a Font end 1 developer, I want to generate a logo to give the project identity.
+13. As a Font end 1 developer, I want to color the web template, according to the colors used in the logo.
+
+Second Increment
+
+1.As a Font end 1 developer, I decided to give the template a more modern look, in addition to making adjustments to the client's main needs and requests. In your case, Bootstrap technology is integrated to make it responsive to all types of devices with internet access, an easy-to-navigate template is also generated, and light colors are used.
+2.As a Font end 1 developer, I solve anchoring problems that are shown when testing with the work team.
+3.A Java script effect is also integrated into the template, to make browsing more pleasant and innovative.
+4.As a Font end 1 developer, I update the navigation menu, now instead of being different pages, navigation is done within the same page, so that the user experience is more pleasant, since the same page makes the information be more accessible than linking to many separate pages.
+5. As a work team, we integrate the Back end code with the new Font end template code.
+6.As a user, I want the new look of the web template not to be too loaded with colors, since the developer Font end 1 had put one color per section, interspersing between light red and light blue, so I ask you to find another option minimalist but attractive.
+7. As a user I also want the navigation bar not to take up much space on the screen, since it takes care of the navigation menu and also a section of the logo, so it makes it a somewhat annoying header.
+8.As a Font end 1 developer, I make a bluish-gray body, mixed with a white navigation bar and a white footer. In addition, I integrate the logo to the navigation bar, although it is a little smaller, but it makes the header take up less space when browsing.
+9.As a Font end 1 developer, in the footer I integrate some credits of the project.
+10. As a user, I require the events that have occurred to be displayed to generate the most relevant seismograms and spectrograms of the day, in addition to allowing me to see some characteristics such as length, latitus, date and time of the event.
+11. As a Back end 2 developer, I generate the script to make the queries to the events.
+12. How work team integrates the new scripts, both Back end and Font end.
+13. As a team we give notice that the software is ready to be mounted on any server, when the user has it. The software is functional locally, so the user can make use of it. The fact of mounting it on a website is to give access to all those users who have access to the internet and are interested in making a query.
+Furthermore, the project is still open to modifications if the user so requires, as it is developed so that it can be scalable and upgradeable, that is, give it its relevant maintenance.
+15. As a team, we will have another meeting with the user, to evaluate the documented project.
+
+Third Increment:
+
+1.As a fontend 1 developer together with the Back end 2 developer, an interactive map is designed and replaced by the event table that was previously, in this map you can see the location of the event and some relevant data, and it can directly be generated its seismogram and spectrogram.
+2. As a Back end 2 developer, a calibration is done in the geoprocessing parameters, since the locations, seismograms and spectrograms presented errors.
+3. As a Font end 1 developer, a color modification is made in the spectrogram to make it more attractive to the user.
+4.As a technology administrator, the entry tests are made to the LAAD server, and the project administrator is asked to generate a database on said server.
+5.As Back end 1 and 2 developers, we started the process of transferring the data from the local database to the LAAD server database, in addition to migrating the scripts to said server.
+6.As a technology administrator, tests are carried out to verify that each time the scripts are executed, the local, transfer and server process is carried out.
+7.As a technology administrator, a bash script is generated, where all the scripts that must be executed are combined, to save us the work of executing said scripts in just one.
+8. As a technology administrator, the crontab is configured every hour so that it executes the script test_setup.sh and we can have updated seismic information.
+
+
 **Database Class Diagram**
 ![Class](/images/class.jpg)
 
