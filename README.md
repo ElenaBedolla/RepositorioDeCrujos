@@ -1,17 +1,15 @@
-Practice 1, Revision 1, English Version
-
-15/03/2020
+Earthquail
 
 
 **Team members:**
 
 **Computo distribuido**
 
-María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
-
+María Elena Bedolla Zamudio maria.elena.bedolla.zamudio@gmail.com
+Lilia Daniela Salazar Herrera liliasalazarherrer@mail.com
 **Introducción a la exploración geofísica**
 
-Jorge Antonio Camarena Pliego
+Jorge Antonio Camarena Pliego camarenapliego@gmail.com
 
 **Introduction**
 
