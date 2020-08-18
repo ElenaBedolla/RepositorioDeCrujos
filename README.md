@@ -1,12 +1,13 @@
 Earthquail
 
-LICENCE: GNU General Public License v3.0 :)
+LICENCE: GNU General Public License v3.0 :4
 
 **Team members:**
 
 **Computo distribuido**
 
 María Elena Bedolla Zamudio maria.elena.bedolla.zamudio@gmail.com
+
 Lilia Daniela Salazar Herrera liliasalazarherrera@gmail.com
 
 **Introducción a la exploración geofísica**
