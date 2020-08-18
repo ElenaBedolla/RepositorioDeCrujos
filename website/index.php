@@ -32,8 +32,14 @@ if (session_status() == PHP_SESSION_NONE) {
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-    <img src="img/quail.png" height = '55px' width = '150px' loading="lazy">
-  </a>
+     <center><TABLE CELLPADDING=5>
+	<TR>
+        <!--<TD><img src="img/az.png" style="width: 100%;" height = '80px' width = '80px'></TD>-->
+		<TD><img src="img/az.png" style="width: 100%;" height = '80px' width = '40px'></TD> 
+		<TD><img src="img/quail.png" style="width: 100%;" height = '80px' width = '80px'></TD>
+	</TR>
+</TABLE ></center>
+    </a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="#head">Home</a>
@@ -46,8 +52,9 @@ if (session_status() == PHP_SESSION_NONE) {
     </nav> 
     <br>
     <br>
-
+    <br>
     <!-- SECTION -->
+
     <section id="header">
       <p id="head"><br></p>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -57,7 +64,10 @@ if (session_status() == PHP_SESSION_NONE) {
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+              <div class="carousel-item active">
+            <img src="img/un.png" class="d-block w-100" height = '700px' width = '400px' style="width: 100%;">
+            </div>
+            <div class="carousel-item">
             <img src="img/sismo.jpg" class="d-block w-100" height = '700px' width = '400px'>
             </div> 
             <div class="carousel-item">
@@ -192,11 +202,13 @@ if (session_status() == PHP_SESSION_NONE) {
     <br>
     <center><TABLE CELLPADDING=30>
 	<TR>
-		<TD><img src="img/enes.png" style="width: 100%;" height = '70px' width = '40px'></TD> <TD> <img src="img/iris.jpg" style="width: 100%;" height = '70px' width = '40px'> </TD> <TD><img src="img/obs.png" style="width: 100%;" height = '70px' width = '40px'></TD> <TD><img src="img/quail.png" style="width: 100%;" height = '70px' width = '40px'></TD>
+		<TD><img src="img/enes.png" style="width: 100%;" height = '70px' width = '40px'></TD> <TD> <img src="img/iris.jpg" style="width: 100%;" height = '70px' width = '40px'> </TD> <TD><img src="img/obs.png" style="width: 100%;" height = '70px' width = '40px'></TD> <TD><img src="img/unamf.png" style="width: 100%;" height = '70px' width ='40px'></TD>
+		<TD><img src="img/GEO.png" style="width: 100%;" height = '70px' width = '40px'></TD>
+		<TD><img src="img/TIC.png" style="width: 100%;" height = '70px' width = '40px'></TD>
 	</TR>
 </TABLE ></center>
     <center>
-     <p id="cre">Derechos reservados, Jorge Antonio Camarena Pliego - Maria Elena Bedolla Zamudio</p>
+     <p id="cre">2020 Universidad Nacional Autonóma de México</p>
     </center>
     </footer>
 
