@@ -1,17 +1,16 @@
-Practice 1, Revision 1, English Version
-
-15/03/2020
-
+Earthquail
+LICENCE: GNU General Public License v3.0
 
 **Team members:**
 
 **Computo distribuido**
 
-María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
+María Elena Bedolla Zamudio maria.elena.bedolla.zamudio@gmail.com
+Lilia Daniela Salazar Herrera liliasalazarherrera@gmail.com
 
 **Introducción a la exploración geofísica**
 
-Jorge Antonio Camarena Pliego
+Jorge Antonio Camarena Pliego camarenapliego@gmail.com
 
 **Introduction**
 
@@ -140,6 +139,13 @@ Third Increment:
 **Database Class Diagram**
 ![Class](/images/class.jpg)
 
+**Installation Instructions**
+Preferably, this project must be run on Linux, as it uses bash and crontab to schedule commands periodically
+
+To install the requirements to run this project, you may run:
+
+pip install -r Requirements.txt
+
 **Test:**
 
 Easy testing can be done by running the test_setup.sh file as follows: 
@@ -162,8 +168,6 @@ And, ideally, the server node should be updating it's own data regularly, so it 
 You can access the cronjobs file easily through the crontab -e command.
 
 To mount the web server on the server node, Apache could be a possible option, and if it is to be previewed on the processor node, it is suggested to execute and Apache XAMPP server and move the reposittory to /opt/lampp/htdocs while also changing all relevant permissions to allow PHP execution.
-
-The library requeriments for this project are in the document labeled "Requeriments.txt".
 
 **Efficiency Results**
 
