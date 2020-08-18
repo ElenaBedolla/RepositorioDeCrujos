@@ -141,7 +141,8 @@ Third Increment:
 **Database Class Diagram**
 ![Class](/images/class.jpg)
 
-**Installation Instructions**
+**Installation Instructions:**
+
 Preferably, this project must be run on Linux, as it uses bash and crontab to schedule commands periodically
 
 To install the requirements to run this project, you may run:
