@@ -1,4 +1,4 @@
-<?
+<?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
     #$_SESSION['post-data'] = $_POST;
@@ -94,20 +94,39 @@ if (session_status() == PHP_SESSION_NONE) {
     <section id="map">
       <p id="defin"><br><br><br></p>
         <center><h2>Eventos</h2></center>
+            <!--<form method='post'>
+                <input type="submit" name="reset" value="Reset"/>
+               //<?
+                //if(!empty($_POST['reset']))
+                    //{
+                        //$_SESSION = [];
+                        //echo "Reset exitoso";
+                    //}
+                //?> 
+            </form> -->
+            <!--<center><iframe id="inlineFrameExample"
+                    title="Inline Frame Example"
+                    width="700px"
+                    height="700px"
+                    src="map.html">
+            </iframe></center> -->
+            
+            
             <div class="embed-container">
             <center><iframe width="1200" height="700" src="map.html" frameborder="0" allowfullscreen></iframe></center>
             </div>
-            <?
+            <?php
             if(isset($_POST['earthquake']))
             {
                 $_SESSION['earthquake'] = json_decode($_POST['earthquake'], true);
+                
             }
             ?>
         </div>
         </div>
       </div>
     </section>
-            <?
+            <?php
             if(!empty($_SESSION['earthquake']))
             {
                 $earthquake_id = $_SESSION['earthquake'][0];
@@ -119,7 +138,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <center><h2>Estaciones</h2></center>
         <div class="row justify-content-center">
         <div class="col-5 text-center">
-            <?
+            <?php
                 $string = file_get_contents("../credentials.json");
                 $json_creds = json_decode($string, true);
 
@@ -138,7 +157,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     Lista de Estaciones :  
                     <select name='station'>  
                     <option value="">--- Seleccione ---</option>  
-                    <?
+                    <?php
                     $station_list=mysqli_query($conn, "SELECT DISTINCT s.symbol FROM STATION as s INNER JOIN CHANNEL as c ON s.symbol=c.station INNER JOIN CHANNEL_EARTHQUAKE as ce ON c.station=ce.station");
                     $station = "";
                     if (isset ($station)&&$station!=""){  
@@ -146,25 +165,65 @@ if (session_status() == PHP_SESSION_NONE) {
                     }  
                     while($row_list=mysqli_fetch_assoc($station_list)){  
                     ?>  
-                        <option value="<? echo $row_list['symbol']; ?>" <? if($row_list['symbol']==$station){ echo "selected"; } ?> > <? echo $row_list['symbol']; ?>  
+                        <option value="<?php echo $row_list['symbol']; ?>" <?php if($row_list['symbol']==$station){ echo "selected"; } ?> > <?php echo $row_list['symbol']; ?>  
                         </option>  
-                    <?  
+                    <?php  
                     }
                     ?>
                     </select>
                     <input type="submit" name="select" value="Seleccionar" />
-                    <?
+                    <?php
                     if(!empty($_POST['select']))
                     {
                         $_SESSION['station'] = $_POST['station'];
                     }
                     ?>
-                </form>
-                    <?
+                    </form>
+                    <?php
                     if(!empty($_SESSION['station']))
                     {
+                        #echo $_SESSION['station'];
                         $selection = $_SESSION['station'];
-                    ?>
+                        /*
+                        $sql = "SELECT DISTINCT e.* FROM EARTHQUAKE AS e INNER JOIN CHANNEL_EARTHQUAKE AS ce ON e.id = ce.earthquake_id WHERE ce.station = '$selection' ORDER BY e.id ASC;";
+                        #echo $sql;
+                        $date_times = array();
+                        $result = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($result) > 0)
+                        {
+                            echo("<table border = 1>");
+                            echo("<tr>
+                                <th>ID</th>
+                                <th>Fecha y Hora</th>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                                <th>Profundidad</th>
+                                <th>Magnitud</th>
+                            </tr>");
+                            ?>
+                            <form method="post" action="">
+                            <?php
+                                while($row = mysqli_fetch_assoc($result)){
+                                    #$temp = new DateTime($row["date_time"]
+                                    $date_time = date_format(new DateTime($row["date_time"]),'YmdHis');
+                                    array_push($date_times, $date_time);
+                                    echo("<tr>
+                                        <td>".$row["id"]."</td>
+                                        <td>".$row["date_time"]."</td>
+                                        <td>".$row["latitude"]."</td>
+                                        <td>".$row["longitude"]."</td>
+                                        <td>".$row["depth"]."</td>
+                                        <td>".$row["magnitude"]."</td>
+                                        <td><button name='earthquake' type='submit' value=".json_encode(array(strval($row["id"]), $date_time)).">X</button>
+                                        </tr>");
+                                }
+                                echo("</table>");
+                                if(!empty($_POST['earthquake']))
+                                {
+                                    $_SESSION['earthquake'] = json_decode($_POST['earthquake'], true);
+                                }
+                                */
+                            ?>
                         </form>
             </div>
             </div>
@@ -178,7 +237,16 @@ if (session_status() == PHP_SESSION_NONE) {
     <!-- SECTION -->
     <section id="espectro">
             <p id="spectro"><br><br><br><center><h2>Espectrograma</h2></center></p>
-            <center><img src="<? echo "../Template/$date_time-$earthquake_id/$selection/spectrograms_plot.png"; ?>" style="width: 40%;" style="height: 40%;"></center>
+            <?php
+            /*
+            if(!empty($_SESSION['earthquake']))
+            {
+                $earthquake_id = $_SESSION['earthquake'][0];
+                $date_time = $_SESSION['earthquake'][1];
+            */
+            ?>
+            <center><img src="<?php echo "../Template/$date_time-$earthquake_id/$selection/spectrograms_plot.png"; ?>" style="width: 40%;" style="height: 40%;"></center>
+             <!--<img src="img/f1.png" style="width: 100%;">-->
           
     </section>
     <br>
@@ -186,12 +254,14 @@ if (session_status() == PHP_SESSION_NONE) {
     <br>
     <!-- SECTION -->
     <section id="sismog">
+             <!--<a href="https://es.wikipedia.org/wiki/Sismograma" class="btn btn-outline-secondary header-btn btn-lg mt-2">Read More</a>-->
              <p id="seis"><br><br><center><h2>Sismograma</h2></center></p><br>
-            <center><img src="<? echo "../Template/$date_time-$earthquake_id/$selection/seismograms_plot.png"; ?>" style="width: 50%;" style="height: 40%;"></center>
-            <?
+            <center><img src="<?php echo "../Template/$date_time-$earthquake_id/$selection/seismograms_plot.png"; ?>" style="width: 50%;" style="height: 40%;"></center>
+            <?php
         } # Cierre del if que verifica si ya se selecciono una estacion
     }  # Cierre de los primeros if que verifica si ya se selecciono un sismo
             ?>
+              <!--<img src="img/f2.png" style="width: 100%;">-->
     </section>
     <br>
       
