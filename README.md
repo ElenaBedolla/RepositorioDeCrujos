@@ -1,17 +1,16 @@
-Practice 1, Revision 1, English Version
-
-15/03/2020
-
+EarthQuail
+LICENCE: GNU General Public License v3.0
 
 **Team members:**
 
 **Computo distribuido**
 
-María Elena Bedolla Zamudio -maria.elena.bedolla.zamudio@gmail.com
+María Elena Bedolla Zamudio maria.elena.bedolla.zamudio@gmail.com
+Lilia Daniela Salazar Herrera liliasalazarherrera@gmail.com
 
 **Introducción a la exploración geofísica**
 
-Jorge Antonio Camarena Pliego
+Jorge Antonio Camarena Pliego camarenapliego@gmail.com
 
 **Introduction**
 
@@ -40,13 +39,13 @@ The set of tools that the distribution system includes meaning the combination o
 
 **Software tools:**
 
-- Python
-- Php
-- HTML5
-- Lighttpd
-- Google Analytics
+- Python 3
+- Php pip install php
+- HTML5 pip install html
+- Lighttpd https://www.lighttpd.net/download/
+- Google Analytics https://analytics.google.com/
 - Módulo de OBSPY
-- Sublime Text
+- Sublime Text https://www.sublimetext.com/3
 - Kate
 - RabbitMQ (Optional)
 - Django
