@@ -1,5 +1,7 @@
 Earthquail
 
+To see this project in action, visit: http://www.gicc.unam.mx/earthquail/index.php
+
 LICENCE: GNU General Public License v3.0 :4
 
 **Team members:**
