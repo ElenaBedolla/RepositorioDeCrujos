@@ -1,5 +1,6 @@
 Earthquail
-LICENCE: GNU General Public License v3.0
+
+LICENCE: GNU General Public License v3.0 :)
 
 **Team members:**
 
